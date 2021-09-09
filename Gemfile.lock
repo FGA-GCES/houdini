@@ -245,7 +245,7 @@ GEM
       nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
-    rack-attack (5.4.2)
+    rack-attack (6.5.0)
       rack (>= 1.0, < 3)
     rack-proxy (0.7.0)
       rack
@@ -446,7 +446,7 @@ DEPENDENCIES
   pry (~> 0.14.1)
   puma (~> 5.3)
   qx!
-  rack-attack (~> 5.2)
+  rack-attack (~> 6.5)
   rack-ssl (~> 1.4)
   rack-timeout (~> 0.6.0)
   rails (= 6.1.4.1)
