@@ -4,19 +4,19 @@ source 'https://rubygems.org'
 
 ruby '2.7.4'
 gem 'rails', '6.1.4.1'
-gem 'jbuilder', '~> 2.10'
-gem 'bootsnap', '~> 1.4', require: false # Large rails application booting enhancer
+gem 'jbuilder', '~> 2.11'
+gem 'bootsnap', '~> 1.9', require: false # Large rails application booting enhancer
 gem 'font_assets', '~> 0.1.14' # for serving fonts on cdn https://github.com/ericallam/font_assets
 gem 'hamster', '~> 3.0' # Thread-safe collection classes for Ruby
-gem 'puma', '~> 5.3'
+gem 'puma', '~> 5.5'
 gem 'rake', '~> 12.3.2'
 gem 'sassc-rails', '~> 2.1', '>= 2.1.2'
 gem 'sassc', '~> 2.0', '>= 2.0.1'
 gem 'stripe', '~> 1.58' # January 19, 2017 version of the Stripe API https://stripe.com/docs/api
-gem 'webpacker', '~> 5.4.2'
+gem 'webpacker', '~> 5.4.3'
 gem 'good_job'
 
-gem 'httparty', '~> 0.18.1' # https://github.com/jnunemaker/httparty
+gem 'httparty', '~> 0.19.0' # https://github.com/jnunemaker/httparty
 gem 'rack-attack', '~> 5.2' # for blocking ip addressses
 gem 'rack-ssl', '~> 1.4'
 gem 'sprockets', '~> 3.7'
@@ -40,7 +40,7 @@ gem 'qx', path: 'gems/ruby-qx'
 gem 'fast_blank'
 
 # Images
-gem 'image_processing', '~> 1.10.3'
+gem 'image_processing', '~> 1.12.1'
 
 # URL validation
 gem 'validate_url'
@@ -58,17 +58,17 @@ group :development, :ci, :test do
   gem 'byebug', '~> 11.0', '>= 11.0.1'
   gem 'dotenv-rails', '~> 2.7', '>= 2.7.5', require: 'dotenv/rails-now'
   gem 'pry', '~> 0.14.1'
-  gem 'rspec-rails', '~> 4.0.0'
+  gem 'rspec-rails', '~> 4.1.2'
   gem 'rspec', '~> 3.10.0'
-  gem 'factory_bot_rails', '~> 5.0', '>= 5.0.2'
-  gem 'factory_bot', '~> 5.0', '>= 5.0.2'
+  gem 'factory_bot_rails', '~> 6.2'
+  gem 'factory_bot', '~> 6.2'
   gem 'listen'
   gem 'table_print', '~> 1.5', '>= 1.5.6' # giuNice table printing of data for the console
   gem 'colorize', '~> 0.8.1' # Print colorized text in debugger/console
-  gem 'rubocop', '~> 1.10'
-  gem 'rubocop-rails', '~> 2.11'
-  gem 'rubocop-rake', '~> 0.5.1'
-  gem 'rubocop-rspec', '~> 2.2'
+  gem 'rubocop', '~> 1.21.0'
+  gem 'rubocop-rails', '~> 2.12'
+  gem 'rubocop-rake', '~> 0.6.0'
+  gem 'rubocop-rspec', '~> 2.4'
   gem 'shoulda-matchers', '~> 5.0.0'
 end
 
@@ -76,8 +76,8 @@ group :ci, :test do
   gem 'action_mailer_matchers', '~> 1.2'
   gem 'database_cleaner-active_record'
   gem 'stripe-ruby-mock', '~> 2.4.1', require: 'stripe_mock', git: 'https://github.com/commitchange/stripe-ruby-mock.git', branch: '2.4.1'
-  gem 'test-unit', '~> 3.3'
-  gem 'timecop', '~> 0.9.1'
+  gem 'test-unit', '~> 3.4'
+  gem 'timecop', '~> 0.9.4'
   gem 'webmock', '~> 3.14'
   gem 'wisper-rspec', '~> 1.1.0'
 end
