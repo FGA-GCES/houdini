@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_01_214501) do
+ActiveRecord::Schema.define(version: 2022_04_07_130650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
@@ -63,6 +63,18 @@ ActiveRecord::Schema.define(version: 2021_11_01_214501) do
     t.text "json_data"
     t.index ["nonprofit_id"], name: "index_activities_on_nonprofit_id"
     t.index ["supporter_id"], name: "index_activities_on_supporter_id"
+  end
+
+  create_table "amount_managements", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "amounts", force: :cascade do |t|
+    t.integer "amount"
+    t.string "currency"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "bank_accounts", id: :serial, force: :cascade do |t|

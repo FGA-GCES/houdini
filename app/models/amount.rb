@@ -5,4 +5,12 @@
 
 # a simple object for storing values. Likely will be replaced with Money from ruby-money
 # in future
-Amount = Struct.new(:cents, :currency)
+class Amount < ApplicationRecord
+    include AmountCreator
+
+    def initialize(amount, currency)
+        @amount = amount
+        @currency = currency
+    end
+end
+

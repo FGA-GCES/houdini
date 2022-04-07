@@ -1,11 +1,14 @@
 class AmountManagement < ApplicationRecord
+    include AmountCreator
+    include Model::Amount
 
+    delegate :initialize, to: :amount
 
-    def generate_amount_as_money(amount, currency)
-        Amount.new(amount||0, currency)
+    def self.generate_amount_as_money(amount, currency)
+        AmountCreator.initialize(amount, currency)
     end
 
-    def net_amount(target)
+    def self.net_amount(target)
 		target.sum(&:net_amount)
 	end
 
