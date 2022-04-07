@@ -1,5 +1,5 @@
 module AmountCreator
-    def self.initialize
+    def self.initialize(*args)
         raise 'Not implemented yet'
     end
 end

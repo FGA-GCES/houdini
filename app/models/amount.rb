@@ -5,12 +5,13 @@
 
 # a simple object for storing values. Likely will be replaced with Money from ruby-money
 # in future
+require 'modules/amount_creator'
 class Amount < ApplicationRecord
     include AmountCreator
 
-    def initialize(amount, currency)
-        @amount = amount
-        @currency = currency
+    def initialize(*args)
+        @amount = args[0]
+        @currency = args[1]
     end
 end
 
