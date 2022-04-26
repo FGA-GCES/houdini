@@ -60,7 +60,7 @@ class Campaign < ApplicationRecord
   has_one_attached_with_sizes(:main_image, {normal: [524, 360], thumb: [180,150]})
   has_one_attached_with_sizes(:background_image, {normal: [1000, 600]})
 
-  has_one_attached_with_default(:main_image, Houdini.defaults.image.profile, 
+  has_one_attached_with_default(:main_image, Houdini.defaults.image.profile,
     filename: "main_image_#{SecureRandom.uuid}#{Pathname.new(Houdini.defaults.image.profile).extname}")
 
   has_many :donations
@@ -119,23 +119,18 @@ class Campaign < ApplicationRecord
   end
 
   def parse_video_id
+    self.vimeo_video_id = nil
+    self.youtube_video_id = nil
     if video_url.include? 'vimeo'
-      self.vimeo_video_id = video_url.split('/').last
-      self.youtube_video_id = nil
+        self.vimeo_video_id = video_url.split('/').last
     elsif video_url.include? 'youtube'
-      match = video_url.match(/\?v=(.+)/)
-      return if match.nil?
+        match = video_url.match(/\?v=(.+)/)
+        return if match.nil?
 
-      self.youtube_video_id = match[1].split('&').first
-      self.vimeo_video_id = nil
+        self.youtube_video_id = match[1].split('&').first
     elsif video_url.include? 'youtu.be'
-      self.youtube_video_id = video_url.split('/').last
-      self.vimeo_video_id = nil
-    elsif video_url.blank?
-      self.vimeo_video_id = nil
-      self.youtube_video_id = nil
+        self.youtube_video_id = video_url.split('/').last
     end
-    self
   end
 
   def total_raised

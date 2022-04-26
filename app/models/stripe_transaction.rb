@@ -4,11 +4,9 @@
 # Full license explanation at https://github.com/houdiniproject/houdini/blob/main/LICENSE
 class StripeTransaction < ApplicationRecord
 	include Model::Subtransactable
-	delegate :created, to: :subtransaction
+	include Model::AmountManagement
 
-	def net_amount
-		payments.sum(&:net_amount)
-	end
+	delegate :created, to: :subtransaction
 
 	concerning :JBuilder do # rubocop:disable Metrics/BlockLength
 		included do

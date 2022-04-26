@@ -4,6 +4,7 @@
 # Full license explanation at https://github.com/houdiniproject/houdini/blob/main/LICENSE
 class Transaction < ApplicationRecord
 	include Model::CreatedTimeable
+	include Model::AmountManagement
 
 	belongs_to :supporter
 	has_one :nonprofit, through: :supporter
@@ -18,10 +19,6 @@ class Transaction < ApplicationRecord
 	has_many :payments, through: :subtransaction
 
 	validates :supporter, presence: true
-
-	def amount_as_money
-    Amount.new(amount||0, nonprofit.currency)
-  end
 
 	concerning :JBuilder do
 		include Model::Houidable
