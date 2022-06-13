@@ -288,7 +288,7 @@ GEM
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
-    rack-timeout (0.6.0)
+    rack-timeout (0.6.3)
     rails (6.1.5)
       actioncable (= 6.1.5)
       actionmailbox (= 6.1.5)
@@ -496,7 +496,7 @@ DEPENDENCIES
   qx!
   rack-attack (~> 5.2)
   rack-ssl (~> 1.4)
-  rack-timeout (~> 0.6.0)
+  rack-timeout (~> 0.6.3)
   rails (= 6.1.5)
   rails-i18n (~> 6.0.0, ~> 6)
   rake (~> 12.3.2)
