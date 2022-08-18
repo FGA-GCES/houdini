@@ -1,0 +1,43 @@
+version: "3.9"
+
+services:
+
+  postgres:
+    image: postgres
+    volumes:
+      - ./postgresdata:/var/lib/postgresql/data
+
+    environment:
+      - POSTGRES_USER=houdini_user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=houdini_db
+    ports:
+        - '5432:5432'
+    command: -p 5432
+    restart: always
+    healthcheck:
+      test: [ "CMD", "pg_isready" ]
+      timeout: 45s
+      interval: 10s
+      retries: 10
+    
+  ruby:
+    image: ruby:2.7.6
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    restart: on-failure
+    environment:
+      - RUBY_VERSION=2.7
+      - RAILS_ENV=production
+      - DATABASE_HOST=localhost
+      - POSTGRES_USER=houdini_user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=houdini_db
+    ports:
+      - "5000:5000"
+    depends_on:
+      - postgres
+
